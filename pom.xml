@@ -5,12 +5,12 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>4.0.10</version>
+		<version>4.0.10</version> <!-- SpringBoot version -->
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.inspirecamp7</groupId>
 	<artifactId>MySpringBootProject4</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version> <!-- WdbApp version-->
 	<name/>
 	<description/>
 	<url/>
