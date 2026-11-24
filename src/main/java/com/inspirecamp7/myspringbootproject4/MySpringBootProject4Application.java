@@ -10,7 +10,10 @@ import org.springframework.context.annotation.Bean;
 public class MySpringBootProject4Application {
 
 	public static void main(String[] args) {
-        SpringApplication.run(MySpringBootProject4Application.class, args);
+        //SpringApplication.run(MySpringBootProject4Application.class, args);
+        SpringApplication application = new SpringApplication((MySpringBootProject4Application.class));
+
+        application.run(args);
 	}
 
 //    @Bean
