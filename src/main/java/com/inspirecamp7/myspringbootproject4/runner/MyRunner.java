@@ -2,6 +2,7 @@ package com.inspirecamp7.myspringbootproject4.runner;
 
 import com.inspirecamp7.myspringbootproject4.config.CustomVO;
 import com.inspirecamp7.myspringbootproject4.properties.MyBootProperties;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -32,13 +33,13 @@ public class MyRunner implements ApplicationRunner {
     @Autowired
     CustomVO customVO;
 
-    Logger logger = LoggerFactory.getlogger(MyRunner.class);
+    Logger logger = LoggerFactory.getLogger(MyRunner.class);
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
         System.out.println("Logger 구현 클래스명 = "+ logger.getClass().getName());
 
-        logger.debug("CustomerVO = " + customVO);
+        logger.debug("CustomerVO = {}", customVO);
 
         logger.debug("환경변수 myboot.name = {}",  myBootName);
         logger.debug("환경변수 myboot.age = {}", mybootAge);
@@ -47,7 +48,7 @@ public class MyRunner implements ApplicationRunner {
         logger.info("MyBootProperties getName() = {}", properties.getFullName());
         logger.info("MyBootProperties getAge() = {}",  properties.getAge());
 
-       //System.out.println("server.port 환경변수 확인 " + args.containsOption("server.port"));
+
         //System.out.println("myboot.name 환경변수 확인 " + args.containsOption("myboot.name"));
         logger.info("server.port Program argument 확인 {}", args.containsOption("server.port"));
         logger.info("myboot.name Program argument 확인 {}", args.containsOption("myboot.name"));
