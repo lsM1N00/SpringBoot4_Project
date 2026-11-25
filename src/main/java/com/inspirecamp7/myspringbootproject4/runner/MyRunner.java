@@ -1,5 +1,6 @@
 package com.inspirecamp7.myspringbootproject4.runner;
 
+import com.inspirecamp7.myspringbootproject4.properties.MyBootProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
@@ -23,11 +24,17 @@ public class MyRunner implements ApplicationRunner {
     @Autowired
     Environment enviroment;
 
+    @Autowired
+    MyBootProperties properties;
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
         System.out.println("환경변수 myboot.name = " + myBootName);
         System.out.println("환경변수 myboot.age = " + mybootAge);
         System.out.println("환경변수 myboot.fullName = " + enviroment.getProperty("myboot.fullName"));
+
+        System.out.println("MyBootProperties getName() = " + properties.getFullName());
+        System.out.println("MyBootProperties getAge() = " + properties.getAge());
 
         System.out.println("server.port 환경변수 확인 " + args.containsOption("server.port"));
         System.out.println("myboot.name 환경변수 확인 " + args.containsOption("myboot.name"));
@@ -43,7 +50,6 @@ public class MyRunner implements ApplicationRunner {
             System.out.println("name = " + name);
         }
         //1번 Anonymous Inner Class (익명 클래스 내부)
-        System.out.println("1단계");
         optionNames.forEach(new Consumer<String>() {
             @Override
             public void accept(String name) {
@@ -56,12 +62,10 @@ public class MyRunner implements ApplicationRunner {
         //Comsumer 인터페이스의 accept() 메서드를 람다식으로 표현
         //arg -> body
         //2번 - 람다 표현식
-        System.out.println("2단계");
         optionNames.forEach(optionName -> System.out.println(optionName));
 
         //Comsumer 인터페이스의 accept() 메서드를 Method Reference로 표햔하기
         //3번 - Method Reference (body만)
-        System.out.println("3단계");
         optionNames.forEach(System.out::println);
 
 
