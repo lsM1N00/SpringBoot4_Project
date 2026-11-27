@@ -49,7 +49,7 @@ class CustomerRepositoryTest {
 
     //1.1 Customer 수정
     @Test
-    @Transactional
+    @Transactional // Transactional을 걸면 .save를 할 필요가 없다.
     @Rollback(value = false)
     void testUpdate() {
         Customer customer = customerRepository.findByCustomerId("AB001")
