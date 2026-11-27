@@ -1,13 +1,14 @@
 package com.inspirecamp7.myspringbootproject4.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "customers")  // 테이블명 지정
 public class Customer {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)  // TABLE, SEQUENCE,IDENTITY,UUID,AUTO;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)  // TABLE, SEQUENCE,IDENTITY,UUID,AUTO;
     private Long id;
 
     @Column(unique = true, nullable = false)
@@ -16,7 +17,11 @@ public class Customer {
     @Column(nullable = false)
     private String customerName;
 
-    @Column()
+    @Column(nullable = false, updatable = false)
+    @CreationTimestamp
     LocalDateTime createdAt = LocalDateTime.now();
+
+
+    //private String customerAddress;
 
 }
