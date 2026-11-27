@@ -1,12 +1,15 @@
 package com.inspirecamp7.myspringbootproject4.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "customers")  // 테이블명 지정
+@Getter @Setter
 public class Customer {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)  // TABLE, SEQUENCE,IDENTITY,UUID,AUTO;
     private Long id;
