@@ -47,18 +47,22 @@ class CustomerRepositoryTest {
         optionalCustomer.ifPresent(customer -> System.out.print(customer.getCustomerName()));
     }
 
+
+    //3. Customer  조회( 값이 일치하는 Customer 존재하지 않는 경우와 존재 하는 경우
     @Test
     void testReadNotFound() {
         //Optional orElseGet(Supplier supplier)
         //함수형 인터페이스 Supplier 추상메서드 T get()
-        Customer customer = customerRepository.findByCustomerId("F001")
+        Customer existCustomer = customerRepository.findByCustomerId("B001")
                 .orElseGet(() -> new Customer());
 
         //Customer가 값이 있는 경우 성공함
-        //assertThat(customer.getCustomerId()).isNotNull();
+        assertThat(existCustomer.getCustomerId()).isNotNull();
 
+        Customer notExistCustomer = customerRepository.findByCustomerId("F001")
+                .orElseGet(() -> new Customer());
         //Customer가 값이 없는 경우 성공함
-        assertThat(customer.getCustomerId()).isNull();
+        assertThat(notExistCustomer.getCustomerId()).isNull();
     }
 
 }
