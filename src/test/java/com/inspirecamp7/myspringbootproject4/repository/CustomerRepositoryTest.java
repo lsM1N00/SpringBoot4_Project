@@ -18,7 +18,7 @@ class CustomerRepositoryTest {
         //Given-When-Then 테스트할 때는 이 3단계로 이루어지다.
         //Given(준비단계)
         Customer customer = new Customer();
-        customer.setCustomerId("A001");
+        customer.setCustomerId("B001");
         customer.setCustomerName("스프링");
 
         //When(실행단계)
@@ -26,8 +26,8 @@ class CustomerRepositoryTest {
 
         //Then(검증단계)
         assertThat(addedCustomer).isNotNull();
-        assertThat(addedCustomer.getId()).isEqualTo(1L);
-        assertThat(addedCustomer.getCustomerName()).isEqualTo("스프링");
+        assertThat(addedCustomer.getCustomerId()).isEqualTo("B001");
+        assertThat(addedCustomer.getCustomerName()).isEqualTo("스프링B");
 
     }
 
