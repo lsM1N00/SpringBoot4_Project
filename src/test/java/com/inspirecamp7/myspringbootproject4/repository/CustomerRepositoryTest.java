@@ -43,6 +43,7 @@ class CustomerRepositoryTest {
             assertThat(existCustomer.getCustomerId()).isEqualTo("B001");
         }
 
+        //함수형 인터페이스 Customer의 추상메서드 void accept(T t)
         optionalCustomer.ifPresent(customer -> System.out.println(customer.getCustomerName()));
     }
 
