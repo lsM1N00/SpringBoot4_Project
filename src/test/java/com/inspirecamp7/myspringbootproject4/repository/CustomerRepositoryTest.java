@@ -40,7 +40,10 @@ class CustomerRepositoryTest {
         //Optional이 담고 있는 Customer가 값ㅇ르 가지고 있으면?
         if(optionalCustomer.isPresent()){
             Customer existCustomer = optionalCustomer.get();
+            assertThat(existCustomer.getCustomerId()).isEqualTo("B001");
         }
+
+        optionalCustomer.ifPresent(customer -> System.out.println(customer.getCustomerName()));
     }
 
 }
