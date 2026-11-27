@@ -50,13 +50,14 @@ class CustomerRepositoryTest {
     //1.1 Customer 수정
     @Test
     @Transactional
+    @Rollback(value = false)
     void testUpdate() {
         Customer customer = customerRepository.findByCustomerId("AB001")
                  .orElseGet(() -> new Customer());
-        customer.setCustomerName("SpringAB");
+        customer.setCustomerName("SpringABC");
 //        Customer updatedCustomer = customerRepository.save(customer);
 //        assertThat(updatedCustomer.getCustomerName()).isEqualTo("SpringB");
-        assertThat(customer.getCustomerName()).isEqualTo("SpringAB");
+        assertThat(customer.getCustomerName()).isEqualTo("SpringABC");
     }
 
     //2.Customer 조회
