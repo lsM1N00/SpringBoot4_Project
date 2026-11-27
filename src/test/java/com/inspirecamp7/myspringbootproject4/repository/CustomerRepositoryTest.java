@@ -44,7 +44,15 @@ class CustomerRepositoryTest {
         }
 
         //함수형 인터페이스 Customer의 추상메서드 void accept(T t)
-        optionalCustomer.ifPresent(customer -> System.out.println(customer.getCustomerName()));
+        optionalCustomer.ifPresent(customer -> System.out.print(customer.getCustomerName()));
+    }
+
+    @Test
+    void testReadNotFound() {
+        //Optional orElseGet(Supplier supplier)
+        //함수형 인터페이스 Supplier 추상메서드 T get()
+        Customer optionalCustomer = customerRepository.findByCustomerId("B001")
+                .orElseGet(() -> new Customer());
     }
 
 }
