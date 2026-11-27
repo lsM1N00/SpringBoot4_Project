@@ -31,4 +31,10 @@ class CustomerRepositoryTest {
 
     }
 
+    //2.Customer 조회
+    @Test
+    void testRead() {
+
+    }
+
 }
