@@ -19,7 +19,7 @@ class CustomerRepositoryTest {
         //Given(준비단계)
         Customer customer = new Customer();
         customer.setCustomerId("B001");
-        customer.setCustomerName("스프링");
+        customer.setCustomerName("스프링B");
 
         //When(실행단계)
         Customer addedCustomer = customerRepository.save(customer);
