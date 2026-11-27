@@ -42,7 +42,7 @@ class CustomerRepositoryTest {
     //1.1 Customer 수정
     @Test
     void testUpdate() {
-       Customer customer = customerRepository.findByCustomerId(("A001"))
+       Customer customer = customerRepository.findByCustomerId("B001")
                 .orElseGet(() -> new Customer());
        customer.setCustomerName("SpringA");
         Customer updatedCustomer = customerRepository.save(customer);
