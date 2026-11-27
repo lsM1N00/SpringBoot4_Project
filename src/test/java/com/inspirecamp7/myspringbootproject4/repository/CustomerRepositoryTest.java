@@ -67,7 +67,16 @@ class CustomerRepositoryTest {
 
     @Test
     void testReadNotFoundException() {
+        //Optional orElseThrow(Supplier <? extends x> supplier)
+        // <x extends Throwable>
+        //함수형 인터페이스 Supplier 추상메서드 T get()
+        Customer existCustomer = customerRepository.findByCustomerId("B001")
+                .orElseThrow(() -> new RuntimeException("Customer Not Found"));
+        assertThat(existCustomer.getCustomerId()).isNotNull();
 
+        Customer notExistCustomer = customerRepository.findByCustomerId("F001")
+                .orElseThrow(() -> new RuntimeException("Customer Not Found"));
+        assertThat(notExistCustomer.getCustomerId()).isNull();
     }
 
 }
